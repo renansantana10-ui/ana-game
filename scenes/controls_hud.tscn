@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/controls_hud.gd" id="1_hud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0, 0, 0, 0.45)
@@ -8,6 +10,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="ControlsHUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -60,7 +63,72 @@ text = "CONTROLES"
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "WASD — Movimentar
+Shift — Correr
 Mouse — Girar câmera
 Espaço — Pular
 Esc — Liberar mouse
 Clique — Retomar câmera"
+
+[node name="VehiclePanel" type="PanelContainer" parent="Root/Margin"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Padding" type="MarginContainer" parent="Root/Margin/VehiclePanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="Lines" type="VBoxContainer" parent="Root/Margin/VehiclePanel/Padding"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Root/Margin/VehiclePanel/Padding/Lines"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "VEÍCULO"
+
+[node name="Body" type="Label" parent="Root/Margin/VehiclePanel/Padding/Lines"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "W — Acelerar
+S — Frear / Ré
+A / D — Virar
+Mouse — Câmera
+E — Descer
+Espaço — Freio de mão / Derrapar"
+
+[node name="PromptPanel" type="PanelContainer" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -90.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Padding" type="MarginContainer" parent="Root/PromptPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Prompt" type="Label" parent="Root/PromptPanel/Padding"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
