@@ -9,7 +9,7 @@ const GLB_PATH := "res://assets/vehicles/ana-veiculo-integracao-v01.glb"
 const SOURCE_GLB := "D:/ana game/producao-assets-3d/exports-glb/ana-veiculo-integracao-v01.glb"
 const SOURCE_SHA256 := "e1725ef7618c869daff49477002eb977c2633bc0ee4a11e9b6d2c2ee2ace846e"
 const SOURCE_SIZE := 400436
-const BASE_COMMIT := "4b925e96be31196a3e8d344af07633e7dd844793"
+const A_COMMIT := "76fa645bbd2a3f889b399c7b6bf7b1ffee94a86a"  ## ANA-GAME-003-A commit (this file is edited after it)
 
 const REF_DIMS := Vector3(0.40, 0.578, 0.745)  ## Blender-side report (X, Y, Z)
 const REF_TRIANGLES := 25772
@@ -17,7 +17,6 @@ const REF_MATERIALS := 5
 const REF_WHEEL_RADIUS := 0.12
 const REF_SEAT_Y := 0.2876
 const WHEEL_NAMES: Array[String] = ["FrontLeftWheel", "FrontRightWheel", "RearLeftWheel", "RearRightWheel"]
-const ALLOWED_GIT_PREFIXES: Array[String] = ["assets/vehicles/", "scenes/validation/", "tests/validation/", "scripts/validation/", "validation/"]
 
 var _pass := 0
 var _fail := 0
@@ -510,35 +509,17 @@ func _git(args: Array) -> Array:
 
 
 func _gameplay_isolation() -> void:
+	# Since ANA-GAME-003-B the playable vehicle uses the GLB on purpose; its isolation checks live in
+	# tests/validation/test_vehicle_official_visual.gd. Here: the 003-A deliverables must stay as committed.
 	var main_txt := FileAccess.get_file_as_string("res://scenes/main.tscn")
-	var veh_txt := FileAccess.get_file_as_string("res://scenes/ride_on_vehicle.tscn")
 	_check("T10 main scene is still res://scenes/main.tscn", str(ProjectSettings.get_setting("application/run/main_scene")) == "res://scenes/main.tscn")
 	_check("T10 main.tscn does not reference the GLB or preview", not main_txt.contains("ana-veiculo-integracao") and not main_txt.contains("ana_vehicle_glb_preview"))
-	_check("T10 playable vehicle scene still uses ride_on_visual.gd and not the GLB",
-			veh_txt.contains("res://scripts/ride_on_visual.gd") and not veh_txt.contains("ana-veiculo-integracao"))
-	var res := _git(["status", "--porcelain", "-uall"])
+	var res := _git(["diff", "--name-only", A_COMMIT, "--", "assets/vehicles", "scenes/validation"])
 	if res[0] != 0:
-		_not_verified("T10 git status unavailable", "exit=%s" % str(res[0]))
+		_not_verified("T10 git diff unavailable", "exit=%s" % str(res[0]))
 		return
-	var offenders: Array[String] = []
-	var touched: Array[String] = []
-	for line in String(res[1]).split("\n", false):
-		var path := line.substr(3).strip_edges().trim_prefix("\"").trim_suffix("\"")
-		touched.append(path)
-		var allowed := false
-		for p in ALLOWED_GIT_PREFIXES:
-			if path.begins_with(p):
-				allowed = true
-		if not allowed:
-			offenders.append(line)
-	_info("git working-tree changes", str(touched))
-	_check("T10 git: only validation/asset paths changed (no gameplay scene, script, project.godot or test touched)", offenders.is_empty(), str(offenders))
-	var head := _git(["rev-parse", "HEAD"])
-	var main_ref := _git(["rev-parse", "main"])
-	_check("T10 no commit was made: HEAD == main == base commit", head[0] == 0 and main_ref[0] == 0
-			and String(head[1]).strip_edges() == BASE_COMMIT and String(main_ref[1]).strip_edges() == BASE_COMMIT,
-			"HEAD=%s main=%s" % [String(head[1]).strip_edges(), String(main_ref[1]).strip_edges()])
-
+	_check("T10 ANA-GAME-003-A assets and preview scenes unchanged since commit %s" % A_COMMIT.substr(0, 7),
+			String(res[1]).strip_edges() == "", String(res[1]).strip_edges())
 
 func _summary() -> void:
 	print("== RESULT: %d PASS, %d FAIL, %d NOT VERIFIED ==" % [_pass, _fail, _nv])

@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3050 Laptop GPU
+
+PERF placeholder scene_instantiate_ms=55
+PERF placeholder mounted=true
+PERF placeholder static_mem_mb=73.5 vram_mb=23.2 nodes=115
+PERF placeholder static frames=7065 avg_fps=1766.1 avg_frame_ms=0.57 p99_ms=1.13 max_ms=7.48 process_ms=6.42 physics_ms=2.20 draw_calls=131 primitives=204446 objects=211
+PERF placeholder driving frames=11909 avg_fps=1701.2 avg_frame_ms=0.59 p99_ms=1.33 max_ms=2.05 process_ms=1.84 physics_ms=0.54 draw_calls=116 primitives=200331 objects=196
+PERF placeholder vehicle_final_pos=(-11.95856, 0.155598, -42.17855) speed_max_reached=ok

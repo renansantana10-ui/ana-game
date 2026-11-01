@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3050 Laptop GPU
+
+PERF official scene_instantiate_ms=35
+PERF official mounted=true
+PERF official static_mem_mb=73.9 vram_mb=25.4 nodes=116
+PERF official static frames=7037 avg_fps=1759.2 avg_frame_ms=0.57 p99_ms=1.05 max_ms=1.65 process_ms=7.59 physics_ms=2.51 draw_calls=146 primitives=126467 objects=226
+PERF official driving frames=12528 avg_fps=1789.6 avg_frame_ms=0.56 p99_ms=1.08 max_ms=3.15 process_ms=1.59 physics_ms=0.55 draw_calls=131 primitives=122296 objects=211
+PERF official vehicle_final_pos=(-11.95856, 0.155598, -42.17855) speed_max_reached=ok

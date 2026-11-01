@@ -1,0 +1,83 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[PASS] four separate mint-green wheels 
+[PASS] pink body, elongated seat and triangular handlebar exist 
+[PASS] child-sized: < 1.0 m long, < 0.7 m wide, < 0.8 m tall (rider ~0.9 m) size=(0.4, 0.5777, 0.745231)
+[PASS] logical anchors exist (seat, camera target, dismount) 
+[PASS] vehicle is a single reusable CharacterBody3D root with one collision shape 
+[PASS] starts ON_FOOT with the vehicle parked 
+[PASS] parked vehicle is grounded and does not drift drift=0.0000
+[PASS] vehicle ignores driving input while nobody rides it 
+[PASS] mount rejected outside interaction distance 
+[PASS] no prompt shown when far 
+[PASS] prompt `E — Subir no veículo` shown near the vehicle prompt='E — Subir no veículo'
+[PASS] E mounts within interaction distance 
+[PASS] mounted state: foot controller inactive, vehicle controllable 
+[PASS] player collision shape disabled while riding (no invisible blocker) 
+[PASS] exactly one player controller and one player visual controllers=1 visuals=1
+[PASS] rider sits on SeatAnchor 
+[PASS] camera target switched to the vehicle 
+[PASS] HUD shows vehicle controls, hides foot controls 
+[PASS] prompt cleared while riding 
+[PASS] mouse sensitivity and pitch limits unchanged 
+[PASS] sprint has no effect while mounted sprint=2.500 plain=2.500 rider_vel=(0.0, 0.0, 0.0)
+[PASS] rider stays on the seat while driving offset=0.0000
+[PASS] acceleration is progressive (not instant) v(0.5 s)=2.50
+[PASS] reaches the 7 m/s top speed on flat ground v=7.00
+[PASS] W drives forward (-Z) dz=-9.16
+[PASS] stays grounded on flat ground (no hop) y=-0.009
+[PASS] releasing W decelerates gradually v=6.00
+[PASS] coasts to a stop v=0.000
+[PASS] S brakes: speed falls fast while moving forward v=-0.50
+[PASS] braking reaches (almost) a stop in under 1.5 s 
+[PASS] forward-to-reverse transition has no abrupt velocity change max step=0.200
+[PASS] reverse engages after slowing and reaches ~ -2.5 m/s v=-2.50
+[PASS] reverse coasts to a stop v=0.000
+[PASS] steering does nothing at standstill (no spinning in place) yaw=0.0000
+[PASS] A steers left (yaw increases, nose swings to -X) dyaw=0.51 fwd=(-0.484376, 0.0, -0.87486)
+[PASS] D steers right (yaw decreases) dyaw=-0.60
+[PASS] turning rate stays sane (no uncontrolled spin) 0.76 / -0.60 rad/s
+[PASS] steering works in reverse like a real vehicle (opposite yaw direction) dyaw=-0.33
+[PASS] vehicle controller source never references the jump action 
+[PASS] driving at speed: Space adds no vertical motion (vs baseline) baseline y=-0.009 vy=0.000 | with Space y=-0.009 vy=0.000
+[PASS] Space does not run the on-foot jump (rider glued to seat, no vertical velocity) 
+[PASS] stopped vehicle: holding Space does nothing vy=0.000
+[PASS] vehicle climbs the hill path to the top (> 3 m) max_y=4.23 frames=481
+[PASS] uphill: does not stall (min speed > 1.5) and stays grounded (>= 85%) min_v=5.17 grounded=481/481
+[PASS] uphill: no clipping into terrain, finite physics, no flipping sink=0.009 tilt=0.98
+[PASS] vehicle descends back down (reaches the start area) y=-0.01
+[PASS] downhill: stable (grounded >= 80%, no clipping, speed bounded) grounded=729/729 sink=0.012 vmax=7.02
+[PASS] parked on a hillside it holds position slid 0.000 m (slope at spot 8.6 deg)
+[PASS] crosses the medium ramp and gets naturally airborne air=39 frames max_y=1.53
+[PASS] lands cleanly: grounded, level, finite y=-0.009 tilt=1.000
+[PASS] crosses the small ramp (peak > 0.4 m) max_y=0.51 air=22
+[PASS] crosses the natural mound (peak > 1.5 m, stays on the surface) max_y=1.99 grounded=271/277
+[PASS] camera follows the vehicle at full speed (lag <= v/follow + margin) error=0.215 allowed=0.419
+[PASS] riding camera is slightly farther than on foot (~4.5 m) dist=4.50
+[PASS] mouse orbit still works while riding 
+[PASS] camera follows through turns 
+[PASS] dismount rejected while moving fast prompt='Pare o veículo para descer'
+[PASS] vehicle has stopped v=0.000
+[PASS] dismount refused when no safe spot exists (stays mounted, shows message) prompt='Sem espaço para descer'
+[PASS] E dismounts when stopped and space is free 
+[PASS] player placed safely beside (not inside) the vehicle gap=0.85
+[PASS] player is grounded again, shape re-enabled y=0.000
+[PASS] vehicle stays in the scene where it was left 
+[PASS] camera target restored to the player's CameraTarget 
+[PASS] visual scale/pose restored, HUD back to foot controls 
+[PASS] one player, one visual after dismount 
+[PASS] camera converges back on the player error=0.000
+[PASS] camera distance back to on-foot value (3.5 m) dist=3.50
+[PASS] WASD works again on foot 
+[PASS] sprint works again on foot 
+[PASS] on-foot jump works after dismounting (Space) rise=0.65
+[PASS] rapid E spam keeps a consistent state (one player, matching flags) mounted=false driven=false shape_disabled=false
+[PASS] E toggle 0: flags consistent 
+[PASS] E toggle 1: flags consistent 
+[PASS] E toggle 2: flags consistent 
+[PASS] E toggle 3: flags consistent 
+[PASS] E toggle 4: flags consistent 
+[PASS] E toggle 5: flags consistent 
+[PASS] E toggles between both states reliably 
+[PASS] final physics state finite 
+RESULT: PASS (0 failure(s))

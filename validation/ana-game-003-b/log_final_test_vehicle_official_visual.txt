@@ -1,0 +1,70 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+-- Test 01: official GLB integration
+[PASS] T01 official GLB resource loads 
+[PASS] T01 playable vehicle scene references the GLB and the adapter 
+[PASS] T01 controller's visual_root is the OfficialVehicleVisual (a RideOnVisual -> update_wheels contract kept) 
+[PASS] T01 four wheel pivots + Spin nodes, HandlebarPivot and SeatAnchor resolved 
+[PASS] T01 update_wheels signature unchanged (speed, steer_angle, delta) 
+-- Test 02: single visible vehicle
+[PASS] T02 13 imported meshes, no placeholder primitive mesh meshes=13 primitives=0
+[PASS] T02 official model instanced exactly once; one PinkBody/Seat/Handlebar 
+[PASS] T02 one vehicle, one collision shape, no second body or camera 
+[PASS] T02 imported GLB brings no physics/light/animation nodes 
+-- Test 03: wheel pivot mapping
+[INFO] wheel role -> imported Spin node { &"front_left": "Spin", &"front_right": "Spin2", &"rear_left": "Spin3", &"rear_right": "Spin4" }
+[PASS] T03 each role maps to the pivot of the same name, its Spin child, and the matching physical corner (left = -X, front = -Z) 
+[PASS] T03 four distinct Spin nodes (names Spin/Spin2/Spin3/Spin4 are not used to infer position) 
+-- Test 04: forward wheel rotation
+[INFO] forward tread top displacement front_left dz=-0.0487 dy=-0.0101 angle=-0.4078 expected=-0.4078
+[INFO] forward tread top displacement front_right dz=-0.0487 dy=-0.0101 angle=-0.4078 expected=-0.4078
+[INFO] forward tread top displacement rear_left dz=-0.0487 dy=-0.0101 angle=-0.4078 expected=-0.4078
+[INFO] forward tread top displacement rear_right dz=-0.0487 dy=-0.0101 angle=-0.4078 expected=-0.4078
+[PASS] T04 all four wheels roll forward (tread top moves to -Z); angle = -v*t/r (proportional to speed and time) 
+[PASS] T04 doubling the speed doubles the angular displacement d=-0.81566 expected=-0.81566
+[PASS] T04 spin angle stays within +-PI over a long run; wheels stay on their axles at rest scale 
+-- Test 05: reverse wheel rotation
+[PASS] T05 reverse speed rolls every wheel by exactly +v*t/r (opposite sign to forward), continuously 
+-- Test 06: braking and idle
+[PASS] T06 braking: per-frame rotation decreases monotonically to zero last=0.000000000
+[PASS] T06 idle: angle unchanged at speed 0, no reset 
+-- Test 07: front-wheel steering
+[PASS] T07 steer +0.4 rad: both front pivots yaw by it (+ = left), rear pivots stay at rest 
+[PASS] T07 front wheels stay on their axles and still roll while steering 
+[PASS] T07 steer -0.4 rad: both front pivots yaw by it (+ = left), rear pivots stay at rest 
+[PASS] T07 front wheels stay on their axles and still roll while steering 
+[PASS] T07 steer 0 restores the exact rest alignment of the front pivots 
+-- Test 08: handlebar steering
+[PASS] T08 handlebar converges to steer*ratio (+ = left) and stays bounded angle=0.5000
+[PASS] T08 turning left pulls the left grip back and pushes the right forward (rotation direction matches wheels) dz=0.096
+[PASS] T08 return is interpolated, not a jump (first frame partial) a=0.335
+[PASS] T08 steer 0 restores the original handlebar rest orientation 
+-- Test 09: visual radius, alignment, physics parameters
+[PASS] T09 visual wheel radius matches the validated mesh (0.1226 +/- 0.001); placeholder 0.13 not used visual=0.1226 measured=0.1226
+[PASS] T09 physics unchanged: capsule r 0.24 / h 0.8, speed 7.0/2.5, accel 5, brake 12, drift 1.85/0.38/0.2, steer visual 0.5 
+[INFO] ground contact lowest tire y - floor y = -0.0006 m (ground_lift 0.012)
+[PASS] T09 flat ground: tires meet the floor within 3 mm (visual lift only), wheel centers at pivot height + lift 
+-- Test 10: seat attachment and mounting
+[PASS] T10 gameplay SeatAnchor (Marker3D) follows the official SeatAnchor (+ documented offset (0.0, 0.0, 0.0)) 
+[PASS] T10 E mounts: mounted state, vehicle driven, camera on the vehicle target 
+[PASS] T10 exactly one player controller and one player visual 
+[INFO] rider vs seat (VehicleVisualRoot space) rider base=(0.0, 0.299595, 0.105) seat x=[-0.082,0.082] z=[-0.050,0.260] top y=0.355
+[PASS] T10 rider base is centered on the seat in X and over the seat in Z, within 7 cm of the seat top (no float, no deep sink) 
+[PASS] T10 rider faces the vehicle's front (-Z) 
+[PASS] T10 still exactly one player after repositioning 
+[PASS] T10 while driving the rider keeps its seat pose in the visual frame (dev < 2 mm) dev=0.00000 tilt_min=1.000
+[PASS] T11 real driving: wheels turned by about distance/r (4 s accelerating) roll=188.9 rad speed=7.00
+[PASS] T16 transforms stay finite and spin angles bounded while driving 
+[PASS] T07/T08 real A key: front wheels and handlebar turn left with the physics steering wheel=0.500 bar=0.500 steer=1.000
+[PASS] T07/T08 real D key: both turn right 
+[PASS] T12 real S key: vehicle reverses and every wheel-roll step is positive (reverse direction) v=-2.50 roll=22.3 rad
+[PASS] T13 Space + A with the GLB: drift engages (drift_amount, lateral slide), no vertical impulse, visual stays finite and attached drift=1.00 lat=2.33 vy=0.000 dy=0.000
+[PASS] T13 releasing Space recovers grip 
+[PASS] T10/T15 E dismounts; player on foot again, one player, camera back on the player 
+-- Test 16/17: stability and source preservation
+[PASS] T16 no NaN/inf in the vehicle transform tree after the full session 
+[PASS] T17 imported GLB checksum unchanged 
+[PASS] T17 production GLB unchanged 
+[PASS] T17 git: protected controller/camera/player/main/project/GLB/preview files unchanged since the 003-A commit 
+[PASS] T17 history preserved: the 003-A commit is an ancestor of HEAD and main is untouched (4b925e9) 4b925e96be31196a3e8d344af07633e7dd844793
+== RESULT: PASS (0 failure(s)) ==
