@@ -1,0 +1,14 @@
+﻿# Godot 4.x: cache e arquivos gerados
+.godot/
+/android/
+*.translation
+
+# Credenciais de exportação (nunca versionar)
+export_credentials.cfg
+
+# Builds locais
+/build/
+/export/
+
+# export_presets.cfg é versionado de propósito (necessário para o export Web).
+# Segredos ficam apenas em export_credentials.cfg.
