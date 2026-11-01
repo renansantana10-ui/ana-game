@@ -1,0 +1,60 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/validation/vehicle_preview_setup.gd" id="1_2d7r1"]
+[ext_resource type="PackedScene" path="res://assets/vehicles/ana-veiculo-integracao-v01.glb" id="2_i3xd1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl8ok"]
+albedo_color = Color(0.627451, 0.627451, 0.627451, 1)
+metallic_specular = 0.2
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7bnjy"]
+size = Vector2(60, 60)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qdpsx"]
+sky_top_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+sky_horizon_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+ground_bottom_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+ground_horizon_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+sun_angle_max = 0.0
+
+[sub_resource type="Sky" id="Sky_7qbg5"]
+sky_material = SubResource("ProceduralSkyMaterial_qdpsx")
+
+[sub_resource type="Environment" id="Environment_5hmpf"]
+background_mode = 2
+sky = SubResource("Sky_7qbg5")
+ambient_light_source = 3
+ambient_light_energy = 0.735
+reflected_light_source = 2
+
+[node name="VehicleGLBPreviewRefined" type="Node3D" unique_id=397494321]
+script = ExtResource("1_2d7r1")
+
+[node name="Vehicle" type="Node3D" parent="." unique_id=1746203784 instance=ExtResource("2_i3xd1")]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=420267368]
+material_override = SubResource("StandardMaterial3D_nl8ok")
+mesh = SubResource("PlaneMesh_7bnjy")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=2083636732]
+transform = Transform3D(-0.8658895, -0.3081733, 0.39403626, 0, 0.78770185, 0.6160567, -0.5002353, 0.533437, -0.68206275, 0, 2, 0)
+light_energy = 0.131
+shadow_enabled = true
+shadow_opacity = 0.65
+shadow_blur = 3.0
+directional_shadow_max_distance = 6.0
+sky_mode = 1
+
+[node name="FillLight" type="DirectionalLight3D" parent="." unique_id=735941362]
+transform = Transform3D(0.76565933, 0.32165244, -0.5570507, 0, 0.8659991, 0.50004554, 0.6432463, -0.38286453, 0.6630603, 0, 2, 0)
+light_energy = 0.058
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1162081895]
+environment = SubResource("Environment_5hmpf")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=215508855]
+transform = Transform3D(-0.61561346, -0.1437892, 0.7748192, 0, 0.9832129, 0.18246242, -0.78804827, 0.112326324, -0.6052791, 1.499, 0.618, -1.171)
+current = true
+fov = 26.0

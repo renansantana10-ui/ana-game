@@ -1,0 +1,12 @@
+﻿import : exit=0 stderr_issues=0 
+glb_import_test : exit=0 stderr_issues=0 == RESULT: 60 PASS, 0 FAIL, 1 NOT VERIFIED ==
+boot_main : exit=0 stderr_issues=0 
+boot_preview_original : exit=0 stderr_issues=0 
+boot_preview_refined : exit=0 stderr_issues=0 
+boot_preview_refined_gui : exit=0 stderr_issues=0 
+smoke_test : exit=0 stderr_issues=0 RESULT: PASS (0 failure(s))
+test_camera_follow : exit=0 stderr_issues=0 RESULT: PASS (0 failure(s))
+test_farm_terrain : exit=0 stderr_issues=0 RESULT: PASS (0 failure(s))
+test_sprint : exit=0 stderr_issues=0 RESULT: PASS (0 failure(s))
+test_vehicle : exit=0 stderr_issues=0 RESULT: PASS (0 failure(s))
+test_drift : exit=0 stderr_issues=0 RESULT: PASS (0 failure(s))
