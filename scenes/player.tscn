@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_ctrl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
+radius = 0.2
+height = 0.9
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_body"]
+radius = 0.2
+height = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Material_body"]
+albedo_color = Color(1, 0.45, 0.7, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_marker"]
+radius = 0.06
+height = 0.12
+
+[sub_resource type="StandardMaterial3D" id="Material_marker"]
+albedo_color = Color(0.15, 0.1, 0.2, 1)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("visual_root")]
+script = ExtResource("1_ctrl")
+visual_root = NodePath("VisualRoot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("CapsuleShape3D_body")
+
+[node name="VisualRoot" type="Node3D" parent="."]
+
+[node name="PlaceholderMesh" type="MeshInstance3D" parent="VisualRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+mesh = SubResource("CapsuleMesh_body")
+surface_material_override/0 = SubResource("Material_body")
+
+[node name="FacingMarker" type="MeshInstance3D" parent="VisualRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, -0.17)
+mesh = SubResource("SphereMesh_marker")
+surface_material_override/0 = SubResource("Material_marker")
+
+[node name="CameraTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

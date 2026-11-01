@@ -22,7 +22,8 @@
 - Preservar arquivos existentes; não apagar/mover/sobrescrever sem autorização.
 - Não alterar decisões artísticas aprovadas sem autorização explícita.
 - Não implementar missões sem autorização do usuário.
-- Git: repositório local; não publicar remotamente nem commitar sem pedido.
+- Git: repositório oficial `https://github.com/renansantana10-ui/ana-game.git` (`origin`, branch `main`). Só commitar/dar push quando autorizado; nunca force push, reset ou rebase destrutivo. O cofre Obsidian NÃO vai para o GitHub.
+- Cenas `.tscn` manuscritas: exports tipados `Node` exigem `node_paths=PackedStringArray(...)` no cabeçalho do nó; validar com os testes em `tests/`.
 - Nunca versionar credenciais (`export_credentials.cfg`) nem `.godot/`.
 
 ## Comunicação
