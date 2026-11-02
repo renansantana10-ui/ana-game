@@ -1,0 +1,40 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[PASS] FarmWorld/Terrain exists and is a FarmTerrain 
+[PASS] terrain mesh and collision shape built 
+[PASS] collision is a static triangle mesh 
+[PASS] collision triangle count matches the grid faces=153600
+[PASS] terrain spans 160 x 160 m size=(160.0, 5.451349, 160.0)
+[PASS] sampled triangles face upward (winding) 
+[PASS] all terrain heights finite 
+[PASS] terrain is deterministic (second build identical) build=286 ms
+[PASS] start area, parking, barn, reserves and plaza are flat 
+[PASS] interior slopes are gentle (< 20 deg) max=16.5 deg
+[PASS] hills exist (many points > 2 m) points=2085
+[PASS] path-end hilltop is the highest point (3.5-5 m) h=4.29
+[PASS] mound peak ~2 m h=2.00
+[PASS] zones A-F identifiable by position 
+[PASS] path mask: on-path ~1, off-path ~0 
+[PASS] 300 random rays all hit ground (no collision gaps) misses=0
+[PASS] collision height matches height field worst=0.040 m
+[PASS] ground exists at all four corners 
+[PASS] two ramps exist with real collision 
+[PASS] ramps face +X (run-up from the west) aim=(1.0, 0.0, 0.0)
+[PASS] medium ramp surface rises linearly to 1.5 m err=0.000
+[PASS] small ramp mid height ~0.25 m y=0.250
+[PASS] ramp is only 4 m wide (ground beside it) 
+[PASS] vertical drop behind the lip (landing area is ground) 
+[PASS] three distinct ramp features (0.5 m, 1.5 m, 2.0 m) 
+[PASS] boundary walls: 4 collision shapes 
+[PASS] walks across the start area (on floor, y ~ 0) { "frames": 321, "on_floor": 321, "max_y": 0.00046874664258, "min_clearance": 0.00046874664258, "reached": true }
+[PASS] walks up the hill path (reaches top, rises > 3 m) 0.00 -> 4.28 m, frames=1263
+[PASS] uphill: stays on the ground (>= 90% grounded, never inside terrain) grounded=1263/1263 clearance=-0.004
+[PASS] jump works on the hilltop and lands again rise=0.65
+[PASS] walks down the hill (reaches bottom, descends > 3 m) y=0.00
+[PASS] downhill: stays on the ground (>= 80% grounded, never inside terrain) grounded=1216/1216 clearance=-0.004
+[PASS] walks over the medium ramp (peaks ~1.5 m, ends on landing area) max_y=1.49
+[PASS] walks over the small ramp (peaks ~0.5 m) max_y=0.50
+[PASS] walks over the mound (peaks > 1.8 m, stays grounded) max_y=2.00 grounded=596/596
+[PASS] player cannot leave the map at any edge  (-0.0,4.0,-79.8) (-0.0,4.1,79.8) (-79.8,4.7,-0.0) (79.8,4.2,-0.0)
+[PASS] player state finite at the end 
+RESULT: PASS (0 failure(s))

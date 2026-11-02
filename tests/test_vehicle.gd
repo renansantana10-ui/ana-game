@@ -153,20 +153,26 @@ func _run() -> void:
 
 	# =============================== 1. Vehicle greybox & proportions ===============================
 	var visual: Node3D = _vehicle.get_node("VehicleVisualRoot")
+	# ANA-GAME-003-B: the visual is the official GLB (wheel pivots -> Spin* -> one mesh with tire + hub surfaces).
 	var wheels_ok := true
 	for w in ["FrontLeftWheel", "FrontRightWheel", "RearLeftWheel", "RearRightWheel"]:
-		var tire: MeshInstance3D = visual.get_node_or_null(w + "/Spin/Tire")
+		var pivot: Node3D = visual.find_child(w, true, false)
+		var tire: MeshInstance3D = null
+		if pivot != null:
+			var meshes := pivot.find_children("*", "MeshInstance3D", true, false)
+			tire = meshes[0] if meshes.size() == 1 else null
 		if tire == null:
 			wheels_ok = false
 			continue
-		var c: Color = (tire.mesh as PrimitiveMesh).material.albedo_color
-		if not (c.g > c.r and c.g > 0.8 and c.b > 0.65):  # mint green
+		var c: Color = (tire.mesh.surface_get_material(0) as BaseMaterial3D).albedo_color
+		if not (c.g > c.r and c.g > 0.8 and c.b > 0.65):  # mint green (surface 0 = tire)
 			wheels_ok = false
 	_check("four separate mint-green wheels", wheels_ok)
-	var pink: Color = (visual.get_node("PinkBody").mesh as PrimitiveMesh).material.albedo_color
+	var body_mesh: MeshInstance3D = visual.find_child("PinkBody", true, false)
+	var pink: Color = (body_mesh.mesh.surface_get_material(0) as BaseMaterial3D).albedo_color
 	_check("pink body, elongated seat and triangular handlebar exist", pink.r > 0.9 and pink.g < 0.7
-			and visual.get_node_or_null("ElongatedSeat") != null and visual.get_node_or_null("TriangularHandlebar") != null
-			and visual.get_node_or_null("HandlebarGrip") != null)
+			and visual.find_child("ElongatedSeat", true, false) != null and visual.find_child("TriangularHandlebar", true, false) != null
+			and visual.find_child("HandlebarGrip", true, false) != null)
 	var bounds := AABB()
 	var first := true
 	for mi in visual.find_children("*", "MeshInstance3D", true, false):

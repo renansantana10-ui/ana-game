@@ -1,0 +1,44 @@
+{
+    "browser":  "Chrome/156.0.8078.74",
+    "gpuDevices":  [
+                       {
+                           "vendor":  "",
+                           "device":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+                           "driver":  "32.0.16.1742"
+                       },
+                       {
+                           "vendor":  "",
+                           "device":  "Intel(R) UHD Graphics",
+                           "driver":  "31.0.101.4502"
+                       },
+                       {
+                           "vendor":  "",
+                           "device":  "Microsoft Basic Render Driver",
+                           "driver":  "10.0.26100.9711"
+                       }
+                   ],
+    "featureStatus":  {
+                          "2d_canvas":  "enabled",
+                          "direct_rendering_display_compositor":  "disabled_off_ok",
+                          "gpu_compositing":  "enabled",
+                          "multiple_raster_threads":  "enabled_on",
+                          "opengl":  "enabled_on",
+                          "rasterization":  "enabled",
+                          "raw_draw":  "disabled_off_ok",
+                          "skia_graphite":  "enabled_on",
+                          "trees_in_viz":  "disabled_off",
+                          "video_decode":  "enabled",
+                          "video_encode":  "enabled",
+                          "webgl":  "enabled",
+                          "webgpu":  "enabled",
+                          "webnn":  "disabled_off"
+                      },
+    "auxAttributes":  {
+                          "glRenderer":  "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11-32.0.16.1742)",
+                          "glVendor":  "Google Inc. (NVIDIA)",
+                          "glVersion":  "OpenGL ES 3.0 (ANGLE 2.1.28975 git hash: 127e783de334)",
+                          "displayType":  "ANGLE_D3D11",
+                          "directRendering":  ""
+                      },
+    "model":  ""
+}

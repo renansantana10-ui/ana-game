@@ -1,0 +1,246 @@
+[
+ {
+  "label": "1_first_visit_cache_enabled",
+  "ready_ms": 1863,
+  "wall_ms": 4400,
+  "nav": {
+   "type": "navigate",
+   "transfer": 300,
+   "dur": 51
+  },
+  "resources": [
+   {
+    "n": "index.js",
+    "transfer": 300,
+    "encoded": 279815,
+    "dur": 14
+   },
+   {
+    "n": "index.wasm",
+    "transfer": 39515054,
+    "encoded": 39514754,
+    "dur": 147
+   },
+   {
+    "n": "index.pck",
+    "transfer": 300,
+    "encoded": 708904,
+    "dur": 9
+   }
+  ],
+  "sw_registrations": 0,
+  "cache_storage_keys": [],
+  "net": [
+   {
+    "f": "index.html",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/html"
+   },
+   {
+    "f": "index.js",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/javascript"
+   },
+   {
+    "f": "index.wasm",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "application/wasm"
+   },
+   {
+    "f": "index.pck",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "application/octet-stream"
+   }
+  ],
+  "errors": [],
+  "failed": [],
+  "console_errors": []
+ },
+ {
+  "label": "2_warm_normal_reload",
+  "ready_ms": 1329,
+  "wall_ms": 3843,
+  "nav": {
+   "type": "reload",
+   "transfer": 300,
+   "dur": 36
+  },
+  "resources": [
+   {
+    "n": "index.js",
+    "transfer": 300,
+    "encoded": 279815,
+    "dur": 0
+   },
+   {
+    "n": "index.wasm",
+    "transfer": 39515054,
+    "encoded": 39514754,
+    "dur": 110
+   },
+   {
+    "n": "index.pck",
+    "transfer": 0,
+    "encoded": 708904,
+    "dur": 2
+   }
+  ],
+  "sw_registrations": 0,
+  "cache_storage_keys": [],
+  "net": [
+   {
+    "f": "index.html",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/html"
+   },
+   {
+    "f": "index.js",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/javascript"
+   },
+   {
+    "f": "index.pck",
+    "status": 200,
+    "fromDiskCache": true,
+    "mime": "application/octet-stream"
+   },
+   {
+    "f": "index.wasm",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "application/wasm"
+   }
+  ],
+  "errors": [],
+  "failed": [],
+  "console_errors": []
+ },
+ {
+  "label": "3_warm_reload_again",
+  "ready_ms": 1308,
+  "wall_ms": 3819,
+  "nav": {
+   "type": "reload",
+   "transfer": 300,
+   "dur": 33
+  },
+  "resources": [
+   {
+    "n": "index.js",
+    "transfer": 300,
+    "encoded": 279815,
+    "dur": 0
+   },
+   {
+    "n": "index.wasm",
+    "transfer": 39515054,
+    "encoded": 39514754,
+    "dur": 128
+   },
+   {
+    "n": "index.pck",
+    "transfer": 0,
+    "encoded": 708904,
+    "dur": 3
+   }
+  ],
+  "sw_registrations": 0,
+  "cache_storage_keys": [],
+  "net": [
+   {
+    "f": "index.html",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/html"
+   },
+   {
+    "f": "index.js",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/javascript"
+   },
+   {
+    "f": "index.pck",
+    "status": 200,
+    "fromDiskCache": true,
+    "mime": "application/octet-stream"
+   },
+   {
+    "f": "index.wasm",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "application/wasm"
+   }
+  ],
+  "errors": [],
+  "failed": [],
+  "console_errors": []
+ },
+ {
+  "label": "4_hard_reload_ignore_cache",
+  "ready_ms": 1454,
+  "wall_ms": 3969,
+  "nav": {
+   "type": "reload",
+   "transfer": 5738,
+   "dur": 42
+  },
+  "resources": [
+   {
+    "n": "index.js",
+    "transfer": 280115,
+    "encoded": 279815,
+    "dur": 7
+   },
+   {
+    "n": "index.wasm",
+    "transfer": 39515054,
+    "encoded": 39514754,
+    "dur": 131
+   },
+   {
+    "n": "index.pck",
+    "transfer": 709204,
+    "encoded": 708904,
+    "dur": 322
+   }
+  ],
+  "sw_registrations": 0,
+  "cache_storage_keys": [],
+  "net": [
+   {
+    "f": "index.html",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/html"
+   },
+   {
+    "f": "index.js",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "text/javascript"
+   },
+   {
+    "f": "index.wasm",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "application/wasm"
+   },
+   {
+    "f": "index.pck",
+    "status": 200,
+    "fromDiskCache": false,
+    "mime": "application/octet-stream"
+   }
+  ],
+  "errors": [],
+  "failed": [],
+  "console_errors": []
+ }
+]

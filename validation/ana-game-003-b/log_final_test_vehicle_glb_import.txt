@@ -1,0 +1,125 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+== ANA-GAME-003-A - Vehicle GLB import integrity ==
+Godot 4.7.2-stable (official) | renderer: gl_compatibility
+-- Test 01: resource availability
+[PASS] T01 GLB resource exists res://assets/vehicles/ana-veiculo-integracao-v01.glb
+[PASS] T01 GLB loads as PackedScene 
+[PASS] T01 scene instantiable, root is Node3D root=ana-veiculo-integracao-v01 class=Node3D
+-- Hierarchy (path | class | local pos | rot deg | scale | vehicle-space pos | mesh)
+   . | Node3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0)
+   Vehicle | Node3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0)
+   Vehicle/ElongatedSeat | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0) | mesh=ana-veiculo-integracao-v01_ElongatedSeat surfaces=1 tris=3216
+   Vehicle/FrontAxle | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0) | mesh=ana-veiculo-integracao-v01_FrontAxle surfaces=1 tris=92
+   Vehicle/FrontLamp | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0) | mesh=ana-veiculo-integracao-v01_FrontLamp surfaces=2 tris=336
+   Vehicle/FrontLeftWheel | Node3D | pos=(-0.1425, 0.12, -0.25) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(-0.1425, 0.12, -0.25)
+   Vehicle/FrontLeftWheel/Spin | Node3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(-0.1425, 0.12, -0.25)
+   Vehicle/FrontLeftWheel/Spin/FrontLeftWheelMesh | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(-0.1425, 0.12, -0.25) | mesh=ana-veiculo-integracao-v01_WheelMesh_Left surfaces=2 tris=3432
+   Vehicle/FrontRightWheel | Node3D | pos=(0.1425, 0.12, -0.25) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.1425, 0.12, -0.25)
+   Vehicle/FrontRightWheel/Spin2 | Node3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.1425, 0.12, -0.25)
+   Vehicle/FrontRightWheel/Spin2/FrontRightWheelMesh | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.1425, 0.12, -0.25) | mesh=ana-veiculo-integracao-v01_WheelMesh_Right surfaces=2 tris=3432
+   Vehicle/HandlebarPivot | Node3D | pos=(0.0, 0.33, -0.25) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.33, -0.25)
+   Vehicle/HandlebarPivot/HandlebarGrip | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.33, -0.25) | mesh=ana-veiculo-integracao-v01_HandlebarGrip surfaces=1 tris=2688
+   Vehicle/HandlebarPivot/SteeringPostUpper | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.33, -0.25) | mesh=ana-veiculo-integracao-v01_SteeringPostUpper surfaces=2 tris=774
+   Vehicle/HandlebarPivot/TriangularHandlebar | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.33, -0.25) | mesh=ana-veiculo-integracao-v01_TriangularHandlebar surfaces=1 tris=864
+   Vehicle/PinkBody | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0) | mesh=ana-veiculo-integracao-v01_PinkBody surfaces=1 tris=1872
+   Vehicle/RearAxle | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0) | mesh=ana-veiculo-integracao-v01_RearAxle surfaces=1 tris=92
+   Vehicle/RearLeftWheel | Node3D | pos=(-0.1425, 0.12, 0.25) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(-0.1425, 0.12, 0.25)
+   Vehicle/RearLeftWheel/Spin3 | Node3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(-0.1425, 0.12, 0.25)
+   Vehicle/RearLeftWheel/Spin3/RearLeftWheelMesh | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(-0.1425, 0.12, 0.25) | mesh=ana-veiculo-integracao-v01_WheelMesh_Left surfaces=2 tris=3432
+   Vehicle/RearRightWheel | Node3D | pos=(0.1425, 0.12, 0.25) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.1425, 0.12, 0.25)
+   Vehicle/RearRightWheel/Spin4 | Node3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.1425, 0.12, 0.25)
+   Vehicle/RearRightWheel/Spin4/RearRightWheelMesh | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.1425, 0.12, 0.25) | mesh=ana-veiculo-integracao-v01_WheelMesh_Right surfaces=2 tris=3432
+   Vehicle/SeatAnchor | Node3D | pos=(0.0, 0.287595, 0.105) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.287595, 0.105)
+   Vehicle/SteeringPostLower | MeshInstance3D | pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0) scl=(1.0, 1.0, 1.0) gpos=(0.0, 0.0, 0.0) | mesh=ana-veiculo-integracao-v01_SteeringPostLower surfaces=2 tris=2110
+-- Test 02: geometry integrity
+[PASS] T02 at least one valid mesh mesh instances=13
+[PASS] T02 every mesh has surfaces and finite, non-degenerate bounds 
+[INFO] triangles instance-level (each MeshInstance3D counted) = 25772 | unique mesh resources = 18908 (11 resources)
+[PASS] T02 triangle count matches Blender-side 25772 (instance-level) actual=25772
+[PASS] T02 part present: PinkBody 
+[PASS] T02 part present: ElongatedSeat 
+[PASS] T02 part present: TriangularHandlebar 
+[PASS] T02 part present: HandlebarGrip 
+[PASS] T02 four wheel assemblies with geometry found=4
+[PASS] T02 no animation/light/camera/collision/skeleton nodes (contract section 10) []
+-- Test 03: material integrity
+[PASS] T03 no surface without material missing=0
+[INFO] material ANA_Mat_Rosa_Provisorio | StandardMaterial3D | albedo=(0.9569, 0.6588, 0.7608, 1.0) rough=0.34 metal=0.00 transparency=0 albedo_tex=<Object#null> normal_tex=<Object#null> | used by ["ElongatedSeat/s0", "HandlebarGrip/s0", "SteeringPostUpper/s1", "TriangularHandlebar/s0", "PinkBody/s0", "SteeringPostLower/s1"]
+[INFO] material ANA_Mat_VerdeMenta_Provisorio | StandardMaterial3D | albedo=(0.6902, 0.8314, 0.7686, 1.0) rough=0.45 metal=0.00 transparency=0 albedo_tex=<Object#null> normal_tex=<Object#null> | used by ["FrontAxle/s0", "FrontLeftWheelMesh/s0", "FrontRightWheelMesh/s0", "SteeringPostUpper/s0", "RearAxle/s0", "RearLeftWheelMesh/s0", "RearRightWheelMesh/s0", "SteeringPostLower/s0"]
+[INFO] material ANA_Mat_VermelhoAmbar_Provisorio | StandardMaterial3D | albedo=(0.8039, 0.2353, 0.1569, 1.0) rough=0.20 metal=0.00 transparency=0 albedo_tex=<Object#null> normal_tex=<Object#null> | used by ["FrontLamp/s0"]
+[INFO] material ANA_Mat_AroAplique_Provisorio | StandardMaterial3D | albedo=(0.7451, 0.6863, 0.6471, 1.0) rough=0.35 metal=0.25 transparency=0 albedo_tex=<Object#null> normal_tex=<Object#null> | used by ["FrontLamp/s1"]
+[INFO] material ANA_Mat_RosaCalota_Provisorio | StandardMaterial3D | albedo=(0.9412, 0.5882, 0.698, 1.0) rough=0.38 metal=0.00 transparency=0 albedo_tex=<Object#null> normal_tex=<Object#null> | used by ["FrontLeftWheelMesh/s1", "FrontRightWheelMesh/s1", "RearLeftWheelMesh/s1", "RearRightWheelMesh/s1"]
+[PASS] T03 unique material count vs reference 5 actual=5
+[PASS] T03 pink body material identifiable by color 
+[PASS] T03 mint-green wheel material identifiable by color 
+[PASS] T03 body and seat use the pink material body=ANA_Mat_Rosa_Provisorio seat=ANA_Mat_Rosa_Provisorio
+-- Test 04: wheel pivot integrity
+[INFO] wheel FrontLeftWheel pivot_local=(-0.1425, 0.12, -0.25) spin=Spin mesh=FrontLeftWheelMesh surfaces=2 | mesh bounds in pivot space: center=(-0.0015, 0.0, 0.0) size=(0.098, 0.2454, 0.245231) radius_yz=0.1226
+[INFO] wheel FrontRightWheel pivot_local=(0.1425, 0.12, -0.25) spin=Spin2 mesh=FrontRightWheelMesh surfaces=2 | mesh bounds in pivot space: center=(0.0015, 0.0, 0.0) size=(0.098, 0.2454, 0.245231) radius_yz=0.1226
+[INFO] wheel RearLeftWheel pivot_local=(-0.1425, 0.12, 0.25) spin=Spin3 mesh=RearLeftWheelMesh surfaces=2 | mesh bounds in pivot space: center=(-0.0015, 0.0, 0.0) size=(0.098, 0.2454, 0.245231) radius_yz=0.1226
+[INFO] wheel RearRightWheel pivot_local=(0.1425, 0.12, 0.25) spin=Spin4 mesh=RearRightWheelMesh surfaces=2 | mesh bounds in pivot space: center=(0.0015, 0.0, 0.0) size=(0.098, 0.2454, 0.245231) radius_yz=0.1226
+[PASS] T04 four distinct wheel pivots, each with a Spin child and one wheel mesh centered on the pivot, axle = X 
+[PASS] T04 all pivot transforms finite and unscaled 
+[PASS] T04 layout plausible: left/right mirrored, front axle ahead (-Z) of rear FL=(-0.1425, 0.12, -0.25) FR=(0.1425, 0.12, -0.25) RL=(-0.1425, 0.12, 0.25) RR=(0.1425, 0.12, 0.25)
+[INFO] wheel geometry wheelbase=0.5000 front_track=0.2850 rear_track=0.2850 center_y=0.1200
+[PASS] T04 tire mesh has 2 surfaces (tire + hub) in one node; Tire/Hub are NOT separate nodes (contract section 4 deviation) 
+[INFO] spin node names ["Spin", "Spin2", "Spin3", "Spin4"] (contract expects exact 'Spin' under each pivot; map by first child)
+[PASS] T04 rotating one wheel's Spin/pivot moves only that wheel (all 4 tested, roll + yaw) 
+[PASS] T04 original wheel transforms restored after temporary rotations 
+-- Test 05: handlebar hierarchy
+[PASS] T05 HandlebarPivot exists (Node3D) 
+[INFO] HandlebarPivot path=Vehicle/HandlebarPivot local=(0.0, 0.33, -0.25) global=(0.0, 0.33, -0.25) rotdeg=(0.0, 0.0, 0.0) parent=Vehicle
+[PASS] T05 transform finite, identity rotation/scale 
+[PASS] T05 grip, triangular handlebar and upper post are under HandlebarPivot 
+[PASS] T05 chassis, seat and lower post are NOT under HandlebarPivot 
+[INFO] steering axis upper-post center offset from pivot axis XZ=0.0004 m; lower-post top vs pivot Y gap=0.0000 m
+[PASS] T05 pivot sits on the post axis and at the post joint (yaw steering axis = local Y) 
+[PASS] T05 temporary yaw of HandlebarPivot moves the handlebar only (restored) 
+-- Test 06: SeatAnchor
+[PASS] T06 SeatAnchor exists and is a Node3D 
+[INFO] SeatAnchor path=Vehicle/SeatAnchor class=Node3D local=(0.0, 0.287595, 0.105) vehicle-space=(0.0, 0.287595, 0.105) rotdeg=(0.0, 0.0, 0.0) parent=Vehicle
+[INFO] seat geometry (vehicle space) seat bounds=[P: (-0.081791, 0.205, -0.05), S: (0.163582, 0.137961, 0.31)] | seat top y=0.3430 | anchor is 0.0554 m below seat top | body bounds=[P: (-0.082333, 0.075127, -0.292), S: (0.164667, 0.145088, 0.61)]
+[PASS] T06 transform finite, identity rotation 
+[PASS] T06 anchor plausible: within seat mesh in X/Y/Z extent 
+[PASS] T06 Y matches reference 0.2876 (+/-0.001) actual=0.2876
+-- Test 07: dimensions and scale
+[PASS] T07 root transform is identity (scale 1, no offset) 
+[PASS] T07 all node transforms finite with positive scale 
+[INFO] vehicle bounds (GLB root space, mesh vertices) min=(-0.2, -0.0027, -0.372616) max=(0.2, 0.575, 0.372616) size X/Y/Z=(0.4, 0.5777, 0.745231)
+[INFO] dimension delta vs Blender report dX=0.0000 (0.00%) dY=-0.0003 (-0.05%) dZ=0.0002 (0.03%)
+[PASS] T07 dimensions within 2% of Blender report 0.40 x 0.578 x 0.745 (X,Y,Z) 
+[PASS] T07 child-sized scale (each axis 0.3..1.2 m) 
+[INFO] wheel radius effective (mesh) = 0.1226 m | pivot height = 0.1200 | lowest tire point y = -0.0027
+[PASS] T07 effective wheel radius within 5% of 0.12 m actual=0.1226
+[PASS] T07 tires touch the ground plane y=0 (|lowest| <= 0.01) lowest=-0.0027
+[INFO] PLACEHOLDER (RideOnVisual) bounds in VehicleVisualRoot space size=(0.4, 0.5777, 0.745231) min=(-0.2, 0.0093, -0.372616) max=(0.2, 0.587, 0.372616)
+[INFO] PLACEHOLDER wheel_radius / SeatAnchor radius=0.123 seat_anchor(local to VehicleVisualRoot)=(0.0, 0.299595, 0.105) class=Marker3D
+[INFO] PLACEHOLDER capsule radius=0.24 height=0.80 (physics body untouched)
+[INFO] GLB vs PLACEHOLDER size ratio X/Y/Z = 1.000 / 1.000 / 1.000 | wheel radius delta = -0.0026 m (0.0% of placeholder) | seat anchor delta = (0.0, -0.012, 0.0)
+-- Test 08: orientation (what can be measured)
+[PASS] T08 root basis identity (no hidden rotation / mirrored axes) 
+[INFO] orientation markers (vehicle-space Z) HandlebarPivot z=-0.250 | FrontLamp z=-0.317 | SeatAnchor z=0.105 | front wheels z=-0.250 | rear wheels z=0.250
+[PASS] T08 handlebar, front lamp and wheels named 'Front*' are on the -Z side; seat on +Z (front = -Z, like the placeholder) 
+[PASS] T08 up = +Y (seat/handlebar above wheel centers) 
+[NOT VERIFIED] T08 semantic front/left/right of the physical shape confirm visually in the Godot screenshots (validation/ana-game-003-a/screenshots)
+-- Test 09: source preservation
+[PASS] T09 project copy SHA-256 equals recorded source hash e1725ef7618c869daff49477002eb977c2633bc0ee4a11e9b6d2c2ee2ace846e
+[PASS] T09 project copy size = 400436 
+[PASS] T09 original source GLB unchanged (hash equals recorded value and the project copy) e1725ef7618c869daff49477002eb977c2633bc0ee4a11e9b6d2c2ee2ace846e
+-- Test 10: gameplay isolation
+[PASS] T10 main scene is still res://scenes/main.tscn 
+[PASS] T10 main.tscn does not reference the GLB or preview 
+[PASS] T10 ANA-GAME-003-A assets and preview scenes unchanged since commit 76fa645 
+-- Test 11: preview scenes
+[PASS] T11 loads: res://scenes/validation/ana_vehicle_glb_preview.tscn 
+[PASS] T11 official GLB instanced as 'Vehicle' (scene_file_path = the GLB) 
+[PASS] T11 official materials preserved (no material_override / surface overrides) overrides=0 materials=5
+[PASS] T11 has Camera3D, light and WorldEnvironment; no vehicle controller / physics body 
+[PASS] T11 vehicle transform untouched by preview scene (identity) 
+[PASS] T11 loads: res://scenes/validation/ana_vehicle_glb_preview_refined.tscn 
+[PASS] T11 official GLB instanced as 'Vehicle' (scene_file_path = the GLB) 
+[PASS] T11 official materials preserved (no material_override / surface overrides) overrides=0 materials=5
+[PASS] T11 has Camera3D, light and WorldEnvironment; no vehicle controller / physics body 
+[PASS] T11 vehicle transform untouched by preview scene (identity) 
+== RESULT: 58 PASS, 0 FAIL, 1 NOT VERIFIED ==

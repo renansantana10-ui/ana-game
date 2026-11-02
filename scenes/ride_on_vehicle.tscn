@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/vehicle_controller.gd" id="1_ctrl"]
-[ext_resource type="Script" path="res://scripts/ride_on_visual.gd" id="2_visual"]
+[ext_resource type="Script" path="res://scripts/official_vehicle_visual.gd" id="2_visual"]
+[ext_resource type="PackedScene" path="res://assets/vehicles/ana-veiculo-integracao-v01.glb" id="3_glb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
 radius = 0.24
@@ -22,6 +23,11 @@ shape = SubResource("CapsuleShape3D_body")
 
 [node name="VehicleVisualRoot" type="Node3D" parent="."]
 script = ExtResource("2_visual")
+ground_lift = 0.012
+
+[node name="VisualAlignmentRoot" type="Node3D" parent="VehicleVisualRoot"]
+
+[node name="OfficialVehicleGLB" parent="VehicleVisualRoot/VisualAlignmentRoot" instance=ExtResource("3_glb")]
 
 [node name="SeatAnchor" type="Marker3D" parent="VehicleVisualRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 0.1)

@@ -1,0 +1,105 @@
+{
+ "ready_ms": -1,
+ "wall_ms": 64417,
+ "gl": {
+  "webgl2": true,
+  "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "vendor": "Google Inc. (NVIDIA)",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "maxTex": 16384
+ },
+ "env": {
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+  "dpr": 1,
+  "inner": [
+   1600,
+   900
+  ],
+  "screen": [
+   1920,
+   1080
+  ],
+  "hw": 12,
+  "mem": 16,
+  "isolated": false,
+  "secure": true,
+  "sw": 0
+ },
+ "canvas": {
+  "w": 1600,
+  "h": 900,
+  "cssW": 1600,
+  "cssH": 900
+ },
+ "mem": {
+  "wasm_mb": null,
+  "heap_mb": 11.231709480285645
+ },
+ "console": [
+  {
+   "type": "log",
+   "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+  },
+  {
+   "type": "log",
+   "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+  },
+  {
+   "type": "log",
+   "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+  }
+ ],
+ "errors": [],
+ "net": [
+  {
+   "url": "/index.html",
+   "status": 200,
+   "mime": "text/html",
+   "fromCache": false,
+   "len": 188
+  },
+  {
+   "url": "/index.png",
+   "status": 200,
+   "mime": "image/png",
+   "fromCache": false,
+   "len": 189
+  },
+  {
+   "url": "/index.js",
+   "status": 200,
+   "mime": "text/javascript",
+   "fromCache": false,
+   "len": 196
+  },
+  {
+   "url": "/index.wasm",
+   "status": 200,
+   "mime": "application/wasm",
+   "fromCache": false,
+   "len": 199
+  },
+  {
+   "url": "/index.pck",
+   "status": 200,
+   "mime": "application/octet-stream",
+   "fromCache": false,
+   "len": 205
+  },
+  {
+   "url": "/index.icon.png",
+   "status": 200,
+   "mime": "image/png",
+   "fromCache": false,
+   "len": 188
+  },
+  {
+   "url": "blob:/0276ec95-f852-4664-a3f6-f27130ea8cf8",
+   "status": 200,
+   "mime": "image/png",
+   "fromCache": false,
+   "len": -1
+  }
+ ],
+ "failed": []
+}

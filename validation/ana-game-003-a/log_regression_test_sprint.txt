@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[PASS] input action `sprint` bound to left Shift 
+[PASS] defaults: walk 2.5 m/s, sprint 5.0 m/s (exported) 
+[PASS] jump velocity unchanged (3.5) 
+[PASS] walking speed is 2.5 m/s v=2.500
+[PASS] sprint accelerates smoothly (not an instant jump) v after 1 frame=2.800
+[PASS] sprinting speed is 5.0 m/s v=5.000
+[PASS] releasing Shift decelerates smoothly v=4.700
+[PASS] back to 2.5 m/s after releasing Shift v=2.500
+[PASS] Shift alone does not move the player v=0.000
+[PASS] sprint stays camera-relative dot=1.000
+[PASS] jump works while sprinting rise=0.654
+[PASS] jump height not changed by sprint standing=0.654 sprinting=0.654
+[PASS] sprint speed kept through the jump v=5.000
+[PASS] no stamina / energy system added 
+RESULT: PASS (0 failure(s))
