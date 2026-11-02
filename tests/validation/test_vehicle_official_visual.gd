@@ -9,6 +9,7 @@ const TIMEOUT_MSEC := 200000
 const GLB := "res://assets/vehicles/ana-veiculo-integracao-v01.glb"
 const GLB_SHA256 := "e1725ef7618c869daff49477002eb977c2633bc0ee4a11e9b6d2c2ee2ace846e"
 const A_COMMIT := "76fa645bbd2a3f889b399c7b6bf7b1ffee94a86a"
+const MAIN_BASE_COMMIT := "4b925e96be31196a3e8d344af07633e7dd844793"  ## main before ANA-GAME-003 (PR #1 merge)
 const ROLES: Array[StringName] = [&"front_left", &"front_right", &"rear_left", &"rear_right"]
 const PROTECTED := ["scripts/vehicle_controller.gd", "scripts/vehicle_interaction.gd", "scripts/player_controller.gd",
 		"scripts/third_person_camera.gd", "scripts/controls_hud.gd", "scripts/ride_on_visual.gd", "scenes/main.tscn",
@@ -141,6 +142,18 @@ func _git(args: Array) -> Array:
 	full.append_array(args)
 	var code := OS.execute("git", PackedStringArray(full), out, true)
 	return [code, String(out[0]) if out.size() > 0 else ""]
+
+
+## Git prints advisory lines ("warning: ... LF will be replaced by CRLF ...") on stderr, which OS.execute merges into
+## the output. They are not changed files, so they are dropped; every other line is a real path and still fails the check.
+func _git_changed_paths(args: Array) -> Array:
+	var res := _git(args)
+	var paths: Array = []
+	for line in String(res[1]).split("\n"):
+		var l := line.strip_edges()
+		if l != "" and not l.begins_with("warning:"):
+			paths.append(l)
+	return [res[0], paths]
 
 
 func _run() -> void:
@@ -480,15 +493,17 @@ func _run() -> void:
 		_check("T17 production GLB unchanged", FileAccess.get_sha256(src) == GLB_SHA256)
 	else:
 		print("[NOT VERIFIED] T17 production GLB not accessible")
-	var diff := _git(["diff", "--name-only", A_COMMIT, "--"] + PROTECTED)
+	var diff := _git_changed_paths(["diff", "--name-only", A_COMMIT, "--"] + PROTECTED)
 	if diff[0] == 0:
-		_check("T17 git: protected controller/camera/player/main/project/GLB/preview files unchanged since the 003-A commit", String(diff[1]).strip_edges() == "", String(diff[1]).strip_edges())
+		_check("T17 git: protected controller/camera/player/main/project/GLB/preview files unchanged since the 003-A commit", diff[1].is_empty(), ", ".join(diff[1]))
 	else:
 		print("[NOT VERIFIED] T17 git unavailable")
+	# History checks stay valid after later commits and merges: the 003-A commit must still be part of HEAD, and the
+	# original ANA-GAME-002 base of main must still be part of main (main may legitimately move forward).
 	var anc := _git(["merge-base", "--is-ancestor", A_COMMIT, "HEAD"])
-	var main_ref := _git(["rev-parse", "main"])
-	_check("T17 history preserved: the 003-A commit is an ancestor of HEAD and main is untouched (4b925e9)", anc[0] == 0
-			and String(main_ref[1]).strip_edges() == "4b925e96be31196a3e8d344af07633e7dd844793", String(main_ref[1]).strip_edges())
+	var base_in_main := _git(["merge-base", "--is-ancestor", MAIN_BASE_COMMIT, "main"])
+	_check("T17 history preserved: the 003-A commit is an ancestor of HEAD and the ANA-GAME-002 base (%s) is still an ancestor of main" % MAIN_BASE_COMMIT.substr(0, 7),
+			anc[0] == 0 and base_in_main[0] == 0, "is-ancestor exit codes: A->HEAD=%s base->main=%s" % [str(anc[0]), str(base_in_main[0])])
 
 	iso.queue_free()
 	print("== RESULT: %s (%d failure(s)) ==" % ["PASS" if _failures == 0 else "FAIL", _failures])

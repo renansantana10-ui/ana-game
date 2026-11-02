@@ -508,18 +508,30 @@ func _git(args: Array) -> Array:
 	return [code, (out[0] if out.size() > 0 else "")]
 
 
+## Git prints advisory lines ("warning: ... LF will be replaced by CRLF ...") on stderr, which OS.execute merges into
+## the output. They are not changed files, so they are dropped; every other line is a real path and still fails the check.
+func _git_changed_paths(args: Array) -> Array:
+	var res := _git(args)
+	var paths: Array = []
+	for line in String(res[1]).split("\n"):
+		var l := line.strip_edges()
+		if l != "" and not l.begins_with("warning:"):
+			paths.append(l)
+	return [res[0], paths]
+
+
 func _gameplay_isolation() -> void:
 	# Since ANA-GAME-003-B the playable vehicle uses the GLB on purpose; its isolation checks live in
 	# tests/validation/test_vehicle_official_visual.gd. Here: the 003-A deliverables must stay as committed.
 	var main_txt := FileAccess.get_file_as_string("res://scenes/main.tscn")
 	_check("T10 main scene is still res://scenes/main.tscn", str(ProjectSettings.get_setting("application/run/main_scene")) == "res://scenes/main.tscn")
 	_check("T10 main.tscn does not reference the GLB or preview", not main_txt.contains("ana-veiculo-integracao") and not main_txt.contains("ana_vehicle_glb_preview"))
-	var res := _git(["diff", "--name-only", A_COMMIT, "--", "assets/vehicles", "scenes/validation"])
+	var res := _git_changed_paths(["diff", "--name-only", A_COMMIT, "--", "assets/vehicles", "scenes/validation"])
 	if res[0] != 0:
 		_not_verified("T10 git diff unavailable", "exit=%s" % str(res[0]))
 		return
 	_check("T10 ANA-GAME-003-A assets and preview scenes unchanged since commit %s" % A_COMMIT.substr(0, 7),
-			String(res[1]).strip_edges() == "", String(res[1]).strip_edges())
+			res[1].is_empty(), ", ".join(res[1]))
 
 func _summary() -> void:
 	print("== RESULT: %d PASS, %d FAIL, %d NOT VERIFIED ==" % [_pass, _fail, _nv])
